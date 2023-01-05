@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const productsRoute = require("./routes/products");
+app.use(productsRoute);
+
 app.all("*", (req, res) => {
   res.status(404).json({ error: "Not Found" });
 });
